@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Databases
+nmap_traces.db
+nmap_traces.db-wal
+nmap_traces.db-shm
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+servers.csv
+run.bat
+run.ps1
+
+# build
+dist/
+build/

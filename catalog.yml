@@ -1,0 +1,26 @@
+sources:
+  traces:
+    driver: sqlite
+    args:
+      url: "sqlite:///nmap_traces.db"
+      sql_expr: "SELECT * FROM traces"
+      index_col: "id"
+  
+  latency_history:
+    driver: sqlite
+    args:
+      url: "sqlite:///nmap_traces.db"
+      sql_expr: |
+        SELECT t.timestamp, MAX(h.rtt) as max_rtt, t.server
+        FROM traces t
+        JOIN hops h ON t.id = h.trace_id
+        GROUP BY t.id
+  
+  hop_details:
+    driver: sqlite
+    args:
+      url: "sqlite:///nmap_traces.db"
+      sql_expr: |
+        SELECT t.timestamp, h.hop_index, h.rtt, t.server
+        FROM traces t
+        JOIN hops h ON t.id = h.trace_id
