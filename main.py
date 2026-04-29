@@ -125,7 +125,7 @@ class MainWindow(QMainWindow):
         dash = QSplitter(Qt.Vertical)
         
         self.plot = pg.PlotWidget(axisItems={'bottom': DateAxis(orientation='bottom')})
-        self.plot.setTitle("Latency History (Destination Node)", color="#00d1b2")
+        self.plot.setTitle("Latency", color="#00d1b2")
         self.plot.showGrid(x=True, y=True, alpha=0.2)
         self.plot.setLabel('left', 'RTT', units='ms')
         self.plot.setMouseEnabled(x=True, y=False)
